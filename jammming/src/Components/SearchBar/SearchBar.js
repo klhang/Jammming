@@ -11,3 +11,5 @@ export class SearchBar from React.Component{
     )
   }
 }
+
+export default SearchBar;
