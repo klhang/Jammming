@@ -5,10 +5,15 @@ class Track extends React.Component{
   constructor(props){
     super(props);
     this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
   }
 
   addTrack(){
     this.props.onAdd(this.props.track);
+  }
+
+  removeTrack(){
+    this.props.onRemove(this.props.track);
   }
 
   renderAction(){
@@ -22,11 +27,14 @@ class Track extends React.Component{
     return(
       <div className="Track">
         <div className="Track-information">
-          <h3><!-- track name will go here -->{this.props.track.name}</h3>
-          <p><!-- track artist will go here-->{this.props.track.artist} | {this.props.track.album}<!-- track album will go here --></p>
+          <h3>{this.props.track.name}</h3>
+          <p>{this.props.track.artist} | {this.props.track.album}</p>
         </div>
-        <a className="Track-action" onClick={this.props.addTrack}>{this.renderAction}</a>
       </div>
     )
   }
 }
+
+export default Track;
+// In the Track.js - element, add an onClick property with the value set to the this.removeTrack method.
+// <a className="Track-action" onClick={this.props.addTrack} onClick={this.props.removeTrack}>{this.renderAction}</a>
